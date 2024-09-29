@@ -1,0 +1,17 @@
+# dependencies
+node_modules
+*.log
+dist
+
+# testing
+coverage
+
+# misc
+.DS_Store
+*.pem
+
+# local env files
+.env
+.env.*
+
+.vscode
