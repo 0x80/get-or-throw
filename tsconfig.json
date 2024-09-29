@@ -3,6 +3,5 @@
   "compilerOptions": {
     "composite": false,
     "incremental": false
-  },
-  "include": ["src"]
+  }
 }

@@ -1,6 +1,7 @@
 # get-or-throw
 
-A convenience function for adhering to Typescript's `noUncheckedIndexedAccess` setting.
+A convenience function for adhering to Typescript's `noUncheckedIndexedAccess`
+setting.
 
 ## Installation
 
@@ -24,4 +25,8 @@ console.log(getOrThrow(obj, "b")); // Output: 2
 
 /** This will throw an error: "Key "d" does not exist in the object." */
 console.log(getOrThrow(obj, "d"));
+
+/** This will throw an error: "Failed to find d" */
+const key = "d";
+console.log(getOrThrow(obj, key, `Failed to find ${key}`));
 ```
