@@ -9,23 +9,21 @@
  * @throws An error if the key or index does not exist.
  */
 export function getOrThrow<T extends object, K extends keyof T>(
-  obj: T,
-  key: K,
-  errorMessage?: string
-): T[K];
-export function getOrThrow<T>(
-  arr: T[],
-  index: number,
-  errorMessage?: string
-): T;
-export function getOrThrow<T extends object, K extends keyof T>(
   objOrArr: T | T[],
   keyOrIndex: K | number,
   errorMessage?: string
 ): T[K] | T {
   if (Array.isArray(objOrArr)) {
-    if (keyOrIndex in objOrArr) {
-      return objOrArr[keyOrIndex as number]!;
+    const length = objOrArr.length;
+    let index = keyOrIndex as number;
+
+    // Handle negative indexing
+    if (index < 0) {
+      index = length + index;
+    }
+
+    if (index >= 0 && index < length) {
+      return objOrArr[index]!;
     } else {
       throw new Error(
         errorMessage ?? `Index ${String(keyOrIndex)} is out of bounds.`

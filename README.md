@@ -3,6 +3,13 @@
 A convenience function for adhering to Typescript's `noUncheckedIndexedAccess`
 setting.
 
+## Features
+
+- Uses Typescript assertions for type narrowing.
+- Works with both objects and arrays.
+- Supports negative indexing for arrays.
+- Allows for custom error messages.
+
 ## Installation
 
 ```bash
@@ -16,6 +23,10 @@ pnpm add get-or-throw
 ```ts
 const arr = [1, 2, 3];
 console.log(getOrThrow(arr, 1)); // Output: 2
+
+/** Support for negative indexing */
+const arr = [1, 2, 3];
+console.log(getOrThrow(arr, -1)); // Output: 3
 
 /** This will throw an error: "Index 3 is out of bounds." */
 console.log(getOrThrow(arr, 3));
