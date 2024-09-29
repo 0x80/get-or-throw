@@ -9,6 +9,7 @@ setting.
 - Works with both objects and arrays.
 - Supports negative indexing for arrays.
 - Allows for custom error messages.
+- Zero dependencies.
 
 ## Installation
 
