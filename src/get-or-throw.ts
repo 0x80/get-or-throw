@@ -9,6 +9,16 @@
  * @throws An error if the key or index does not exist.
  */
 export function getOrThrow<T extends object, K extends keyof T>(
+  obj: T,
+  key: K,
+  errorMessage?: string
+): T[K];
+export function getOrThrow<T>(
+  arr: T[],
+  index: number,
+  errorMessage?: string
+): T;
+export function getOrThrow<T extends object, K extends keyof T>(
   objOrArr: T | T[],
   keyOrIndex: K | number,
   errorMessage?: string
