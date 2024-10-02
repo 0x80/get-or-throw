@@ -1,7 +1,3 @@
 {
-  "extends": "@codecompose/typescript-config/library.json",
-  "compilerOptions": {
-    "composite": false,
-    "incremental": false
-  }
+  "extends": "@codecompose/typescript-config/single-library.json"
 }

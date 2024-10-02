@@ -1,7 +1,9 @@
 # dependencies
-node_modules
+/node_modules
+/dist
+/tsconfig.buildinfo
+
 *.log
-dist
 
 # testing
 coverage
