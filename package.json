@@ -1,6 +1,6 @@
 {
   "name": "get-or-throw",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A convenience function for adhering to Typescript's noUncheckedIndexedAccess rule",
   "type": "module",
   "main": "dist/index.cjs",
