@@ -1,12 +1,13 @@
 /**
- * Get a value from an object or array, or throw an error if the key or index
- * does not exist.
+ * Get a value from an object or array, and throw an error if the key or index
+ * does not exist or if the resulting value is undefined.
  *
  * @param objOrArr The object or array to get the value from.
  * @param keyOrIndex The key or index to get the value from.
  * @param errorMessage Optional error message to include in the error thrown.
  * @returns The value at the given key or index.
- * @throws An error if the key or index does not exist.
+ * @throws An error if the key or index does not exist, or if the resulting
+ *   value is undefined.
  */
 export function getOrThrow<T extends object, K extends keyof T>(
   obj: T,
@@ -33,7 +34,15 @@ export function getOrThrow<T extends object, K extends keyof T>(
     }
 
     if (index >= 0 && index < length) {
-      return objOrArr[index]!;
+      const value = objOrArr[index];
+
+      if (value === undefined) {
+        throw new Error(
+          errorMessage ?? `Value at index ${String(keyOrIndex)} is undefined.`
+        );
+      } else {
+        return value;
+      }
     } else {
       throw new Error(
         errorMessage ?? `Index ${String(keyOrIndex)} is out of bounds.`
@@ -41,7 +50,15 @@ export function getOrThrow<T extends object, K extends keyof T>(
     }
   } else {
     if (keyOrIndex in objOrArr) {
-      return objOrArr[keyOrIndex as K];
+      const value = objOrArr[keyOrIndex as K];
+
+      if (value === undefined) {
+        throw new Error(
+          errorMessage ?? `Value at key "${String(keyOrIndex)}" is undefined.`
+        );
+      } else {
+        return value;
+      }
     } else {
       throw new Error(
         errorMessage ??
