@@ -76,3 +76,6 @@ export function getOrThrow<T extends object, K extends keyof T>(
     }
   }
 }
+
+/** Export the same function under the alias 'got' */
+export { getOrThrow as got };
