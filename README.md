@@ -1,11 +1,13 @@
 # get-or-throw
 
-A convenience function for adhering to Typescript's `noUncheckedIndexedAccess`
-setting.
+A simple convenience function for safely accessing values in objects and arrays.
+It gets a value from an object or array at a specified key or index, and throw
+an error if the resulting value is `undefined` or `null`. Optionally, you can
+set custom error message.
 
-Get a value from an object or array at the specified key or index. Throw an
-error if the key or index does not exist, or if the resulting value is undefined
-or null.
+This was created to make it easy to adhere to Typescript's
+[noUncheckedIndexedAccess](https://www.typescriptlang.org/tsconfig/#noUncheckedIndexedAccess)
+setting, which is recommended for strict type checking.
 
 ## Features
 
@@ -14,6 +16,7 @@ or null.
 - Supports negative indexing for arrays.
 - Allows for custom error messages.
 - Zero dependencies.
+- Provides `got` as alias for `getOrThrow`
 
 ## Installation
 
@@ -58,3 +61,5 @@ console.log(getOrThrow(arr, 1));
 const obj = { a: 1, b: undefined, c: 3 };
 console.log(getOrThrow(obj, "b"));
 ```
+
+## Alias
