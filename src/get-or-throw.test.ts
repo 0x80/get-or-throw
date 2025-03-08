@@ -20,9 +20,9 @@ describe("get-or-throw", () => {
       expect(() => got(arr, 3)).toThrow("Index 3 is out of bounds.");
     });
 
-    it("should throw on null values", () => {
+    it("should allow null values", () => {
       const arr = [1, null, 3];
-      expect(() => got(arr, 1)).toThrow("Value at index 1 is null.");
+      expect(got(arr, 1)).toBeNull();
     });
 
     it("should throw on undefined values", () => {
@@ -45,14 +45,16 @@ describe("get-or-throw", () => {
       );
     });
 
-    it("should throw on null values", () => {
+    it("should allow null values", () => {
       const obj = { a: 1, b: null, c: 3 };
-      expect(() => got(obj, "b")).toThrow('Value at key "b" is null.');
+      expect(got(obj, "b")).toBeNull();
     });
 
     it("should throw on undefined values", () => {
       const obj = { a: 1, b: undefined, c: 3 };
-      expect(() => got(obj, "b")).toThrow('Value at key "b" is undefined.');
+      expect(() => {
+        got(obj, "b");
+      }).toThrow('Value at key "b" is undefined.');
     });
   });
 
