@@ -1,6 +1,6 @@
 {
   "extends": "@codecompose/typescript-config/single-library.json",
   "compilerOptions": {
-    "rootDir": "."
+    "rootDir": "." // Needed for CI for some reason
   }
 }

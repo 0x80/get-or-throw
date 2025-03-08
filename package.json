@@ -16,7 +16,7 @@
     "clean": "del dist tsconfig.tsbuildinfo",
     "prepare": "pnpm build",
     "lint": "eslint .",
-    "compile": "tsc --noEmit",
+    "type-check": "tsc --noEmit",
     "test": "vitest"
   },
   "repository": {
