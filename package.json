@@ -1,6 +1,6 @@
 {
   "name": "get-or-throw",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A convenience function for safely getting values from dynamic objects and arrays",
   "type": "module",
   "main": "dist/index.cjs",
