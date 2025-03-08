@@ -41,7 +41,7 @@ describe("get-or-throw", () => {
     it("should throw on non-existent key", () => {
       const obj = { a: 1, b: 2, c: 3 };
       expect(() => got(obj, "d" as keyof typeof obj)).toThrow(
-        'Key "d" does not exist in the object.'
+        'Key "d" does not exist in the object.',
       );
     });
 
@@ -61,7 +61,7 @@ describe("get-or-throw", () => {
       const obj = { a: 1, b: 2, c: 3 };
       const key = "d";
       expect(() =>
-        got(obj, key as keyof typeof obj, `Failed to find ${key}`)
+        got(obj, key as keyof typeof obj, `Failed to find ${key}`),
       ).toThrow("Failed to find d");
     });
   });

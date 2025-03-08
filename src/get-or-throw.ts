@@ -13,7 +13,7 @@
 export function getOrThrow<T extends object, K extends keyof T>(
   objOrArr: T | (T | null)[],
   keyOrIndex: K | number,
-  errorMessage?: string
+  errorMessage?: string,
 ): NonNullable<T[K]> | NonNullable<T> {
   if (Array.isArray(objOrArr)) {
     const length = objOrArr.length;
@@ -29,17 +29,17 @@ export function getOrThrow<T extends object, K extends keyof T>(
 
       if (value === undefined) {
         throw new Error(
-          errorMessage ?? `Value at index ${String(keyOrIndex)} is undefined.`
+          errorMessage ?? `Value at index ${String(keyOrIndex)} is undefined.`,
         );
       } else if (value === null) {
         throw new Error(
-          errorMessage ?? `Value at index ${String(keyOrIndex)} is null.`
+          errorMessage ?? `Value at index ${String(keyOrIndex)} is null.`,
         );
       }
       return value;
     } else {
       throw new Error(
-        errorMessage ?? `Index ${String(keyOrIndex)} is out of bounds.`
+        errorMessage ?? `Index ${String(keyOrIndex)} is out of bounds.`,
       );
     }
   } else {
@@ -50,17 +50,17 @@ export function getOrThrow<T extends object, K extends keyof T>(
         return value as NonNullable<T[K]>;
       } else if (value === undefined) {
         throw new Error(
-          errorMessage ?? `Value at key "${String(keyOrIndex)}" is undefined.`
+          errorMessage ?? `Value at key "${String(keyOrIndex)}" is undefined.`,
         );
       } else {
         throw new Error(
-          errorMessage ?? `Value at key "${String(keyOrIndex)}" is null.`
+          errorMessage ?? `Value at key "${String(keyOrIndex)}" is null.`,
         );
       }
     } else {
       throw new Error(
         errorMessage ??
-          `Key "${String(keyOrIndex)}" does not exist in the object.`
+          `Key "${String(keyOrIndex)}" does not exist in the object.`,
       );
     }
   }

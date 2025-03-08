@@ -1,7 +1,7 @@
 {
   "name": "get-or-throw",
   "version": "1.5.0",
-  "description": "A convenience function for safely accessing values in dynamic objects and arrays",
+  "description": "A convenience function for safely getting values from dynamic objects and arrays",
   "type": "module",
   "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
@@ -17,7 +17,8 @@
     "prepare": "pnpm build",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
-    "test": "vitest"
+    "test": "vitest",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
