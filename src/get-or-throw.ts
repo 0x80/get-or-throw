@@ -11,17 +11,7 @@
  *   value is undefined or null.
  */
 export function getOrThrow<T extends object, K extends keyof T>(
-  objOrArr: T,
-  keyOrIndex: K,
-  errorMessage?: string
-): NonNullable<T[K]>;
-export function getOrThrow<T>(
-  objOrArr: T[],
-  keyOrIndex: number,
-  errorMessage?: string
-): NonNullable<T>;
-export function getOrThrow<T extends object, K extends keyof T>(
-  objOrArr: T | T[],
+  objOrArr: T | (T | null)[],
   keyOrIndex: K | number,
   errorMessage?: string
 ): NonNullable<T[K]> | NonNullable<T> {
@@ -37,17 +27,16 @@ export function getOrThrow<T extends object, K extends keyof T>(
     if (index >= 0 && index < length) {
       const value = objOrArr[index];
 
-      if (value !== undefined && value !== null) {
-        return value as NonNullable<T>;
-      } else if (value === undefined) {
+      if (value === undefined) {
         throw new Error(
           errorMessage ?? `Value at index ${String(keyOrIndex)} is undefined.`
         );
-      } else {
+      } else if (value === null) {
         throw new Error(
           errorMessage ?? `Value at index ${String(keyOrIndex)} is null.`
         );
       }
+      return value;
     } else {
       throw new Error(
         errorMessage ?? `Index ${String(keyOrIndex)} is out of bounds.`
