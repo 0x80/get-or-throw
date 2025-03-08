@@ -27,36 +27,39 @@ pnpm add get-or-throw
 
 ## Usage
 
+The example code below uses the `got` alias but `getOrThrow` is also available
+if you want to be more explicit.
+
 ```ts
 const arr = [1, 2, 3];
-console.log(got(arr, 1)); // Output: 2
+const value = got(arr, 1); // Output: 2
 
 /** Support for negative indexing */
 const arr = [1, 2, 3];
-console.log(got(arr, -1)); // Output: 3
+const value = got(arr, -1); // Output: 3
 
 /** This will throw an error: "Index 3 is out of bounds." */
-console.log(got(arr, 3));
+const value = got(arr, 3);
 
 const obj = { a: 1, b: 2, c: 3 };
-console.log(got(obj, "b")); // Output: 2
+const value = got(obj, "b"); // Output: 2
 
 /** This will throw an error: "Key "d" does not exist in the object." */
-console.log(got(obj, "d"));
+const value = got(obj, "d");
 
 /** This will throw an error: "Failed to find d" */
 const key = "d";
-console.log(got(obj, key, `Failed to find ${key}`));
+const value = got(obj, key, `Failed to find ${key}`);
 
 /** This will throw an error: "Value at index 1 is undefined or null." */
 const arr = [1, null, 3];
-console.log(got(arr, 1));
+const value = got(arr, 1);
 
 /** This will throw an error: "Value at index 1 is undefined or null." */
 const arr = [1, undefined, 3];
-console.log(got(arr, 1));
+const value = got(arr, 1);
 
 /** This will throw an error: "Value at key 'b' is undefined or null." */
 const obj = { a: 1, b: undefined, c: 3 };
-console.log(got(obj, "b"));
+const value = got(obj, "b");
 ```
