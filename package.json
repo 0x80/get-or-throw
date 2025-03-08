@@ -1,7 +1,7 @@
 {
   "name": "get-or-throw",
   "version": "1.5.0",
-  "description": "A convenience function for adhering to Typescript's noUncheckedIndexedAccess rule",
+  "description": "A convenience function for safely accessing values in dynamic objects and arrays",
   "type": "module",
   "main": "dist/index.cjs",
   "types": "dist/index.d.ts",

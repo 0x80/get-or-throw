@@ -1,8 +1,9 @@
 # Get-Or-Throw / Got
 
-A simple convenience function for safely accessing values in objects and arrays.
-It gets the at a specified key or index, and throws an error if the resulting
-value is `undefined` or `null`. Optionally, you can set custom error message.
+A convenience function for safely accessing values in dynamic objects and
+arrays. It gets the value at a specified key or index, and throws an error if
+the resulting value is `undefined` or `null`. Optionally, you can set custom
+error message.
 
 This was created to make it easy to adhere to Typescript's
 [noUncheckedIndexedAccess](https://www.typescriptlang.org/tsconfig/#noUncheckedIndexedAccess)
