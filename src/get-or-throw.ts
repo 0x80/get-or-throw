@@ -13,7 +13,7 @@ export function getOrThrow<T extends object, K extends keyof T>(
   objOrArr: T,
   keyOrIndex: K,
   errorMessage?: string,
-): T[K];
+): NonNullable<T[K]>;
 export function getOrThrow<T>(
   objOrArr: T[],
   keyOrIndex: number,
