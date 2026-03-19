@@ -43,10 +43,10 @@ import { got } from "get-or-throw";
 import { getOrThrow } from "get-or-throw";
 
 const arr = [1, 2, 3];
-const value = got(arr, 1); // 2
+const arrValue = got(arr, 1); // 2
 
 const obj = { a: 1, b: 2, c: 3 };
-const value = got(obj, "b"); // 2
+const objValue = got(obj, "b"); // 2
 ```
 
 Both functions behave identically — use whichever you prefer. The `got` alias is

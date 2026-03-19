@@ -35,10 +35,10 @@ setting, which is recommended for strict type checking.
 import { got } from "get-or-throw";
 
 const arr = [1, 2, 3];
-const value = got(arr, 1); // 2 — type is `number`, not `number | undefined`
+const arrValue = got(arr, 1); // 2 — type is `number`, not `number | undefined`
 
 const obj = { a: 1, b: 2, c: 3 };
-const value = got(obj, "b"); // 2
+const objValue = got(obj, "b"); // 2
 ```
 
 Instead of writing repetitive guard clauses or non-null assertions throughout

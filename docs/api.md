@@ -10,11 +10,7 @@ not exist or if the resulting value is `undefined`.
 #### Array Access
 
 ```ts
-function getOrThrow<T>(
-  array: T[],
-  index: number,
-  errorMessage?: string,
-): T;
+function getOrThrow<T>(array: T[], index: number, errorMessage?: string): T;
 ```
 
 #### Object Access
@@ -29,11 +25,11 @@ function getOrThrow<T extends object, K extends keyof T>(
 
 ### Parameters
 
-| Parameter      | Type     | Description                                              |
-| -------------- | -------- | -------------------------------------------------------- |
-| `objOrArr`     | `T[] \| T` | The array or object to access.                         |
-| `keyOrIndex`   | `number \| K` | The index (for arrays) or key (for objects) to access. |
-| `errorMessage` | `string` | Optional custom error message.                           |
+| Parameter          | Type          | Description                                            |
+| ------------------ | ------------- | ------------------------------------------------------ |
+| `array` / `object` | `T[] \| T`    | The array or object to access.                         |
+| `index` / `key`    | `number \| K` | The index (for arrays) or key (for objects) to access. |
+| `errorMessage`     | `string`      | Optional custom error message.                         |
 
 ### Returns
 
