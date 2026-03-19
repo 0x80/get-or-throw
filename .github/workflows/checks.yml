@@ -1,13 +1,18 @@
-name: CI
+name: Checks
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: ["**"]
+  workflow_call:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  # Skip concurrency restriction when called from another workflow
+  # This prevents deadlocks between parent workflow and this one
+  group:
+    ${{ github.event_name == 'workflow_call' && format('{0}-{1}', github.workflow,
+    github.run_id) || format('{0}-{1}', github.workflow, github.ref) }}
   cancel-in-progress: true
 
 jobs:
@@ -16,8 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        command: [lint, type-check, test]
-
+        command: [check-types, check-format, lint, test]
     name: ${{ matrix.command }}
 
     steps:
@@ -26,7 +30,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Enable corepack
         run: corepack enable pnpm
@@ -42,15 +46,14 @@ jobs:
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          # First tries exact match with lock file hash. If not found,
-          # falls back to any cache starting with 'pnpm-store-'.
-          # This way we get exact cache on repeated runs, but can still
-          # use older cache as starting point when dependencies change.
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
 
       - name: Run ${{ matrix.command }}
         run: pnpm ${{ matrix.command }}
