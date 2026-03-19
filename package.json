@@ -16,7 +16,7 @@
     "dev": "tsdown --watch",
     "clean": "del dist tsconfig.tsbuildinfo",
     "prepare": "pnpm build",
-    "lint": "oxlint",
+    "check-lint": "oxlint",
     "format": "oxfmt .",
     "check-format": "oxfmt --check .",
     "check-types": "tsc --noEmit",
