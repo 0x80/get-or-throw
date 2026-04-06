@@ -1,8 +1,7 @@
 # dependencies
 /node_modules
 /dist
-/tsconfig.buildinfo
-.tsbuildinfo
+*.tsbuildinfo
 
 *.log
 
