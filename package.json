@@ -1,6 +1,6 @@
 {
   "name": "get-or-throw",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "description": "A convenience function for safely getting values from dynamic objects and arrays",
   "keywords": [
     "indexed",
