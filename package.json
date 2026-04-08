@@ -18,12 +18,15 @@
     "type": "git",
     "url": "git+https://github.com/0x80/get-or-throw.git"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "type": "module",
   "exports": {
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "files": ["dist", "src"],
   "publishConfig": {
     "access": "public"
   },
