@@ -19,6 +19,10 @@
     "url": "git+https://github.com/0x80/get-or-throw.git"
   },
   "type": "module",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -51,9 +55,5 @@
   "engines": {
     "node": ">=22.12.0"
   },
-  "packageManager": "pnpm@9.8.0+sha256.56a9e76b51796ca7f73b85e44cf83712862091f4d498c0ce4d5b7ecdc6ba18f7",
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./package.json": "./package.json"
-  }
+  "packageManager": "pnpm@9.8.0+sha256.56a9e76b51796ca7f73b85e44cf83712862091f4d498c0ce4d5b7ecdc6ba18f7"
 }
