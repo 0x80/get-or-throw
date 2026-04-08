@@ -23,6 +23,7 @@
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
+  "files": ["dist", "src"],
   "publishConfig": {
     "access": "public"
   },
